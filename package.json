@@ -1,0 +1,32 @@
+{
+  "name": "h-vue-tab",
+  "private": false,
+  "version": "1.0.1a",
+  "files": ["dist"],
+  "main": "./dist/h-vue-tab.umd.js",
+  "module": "./dist/h-vue-tab.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/h-vue-tab.es.js",
+      "require": "./dist/h-vue-tab.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "identity-obj-proxy": "^3.0.0",
+    "ts-node": "^10.9.1",
+    "vite": "^4.4.0",
+    "vitest": "^0.33.0"
+  }
+}
