@@ -1,24 +1,25 @@
 {
-  "name": "h-vue-tab",
-  "private": false,
-  "version": "1.0.1a",
-  "files": ["dist"],
-  "main": "./dist/h-vue-tab.umd.js",
-  "module": "./dist/h-vue-tab.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/h-vue-tab.es.js",
-      "require": "./dist/h-vue-tab.umd.js"
-    },
-    "./dist/style.css": "./dist/style.css"
+  "name": "h-vue-tabs",
+  "version": "0.0.8",
+  "description": "A Vue Vite Plugin for building Tab components",
+  "author": "Hannah Ejimofor <hannahejimofor@gmail.com>",
+  "main": "dist/umd.js",
+  "module": "dist/es.js",
+  "unpkg": "dist/umd.min.js",
+  "jsdelivr": "dist/umd.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hannahadora/h-vue-tab.git"
   },
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "test": "jest"
+    "preview": "vite preview"
   },
+  "keywords": [
+    "vue",
+    "vite"
+  ],
   "dependencies": {
     "vue": "^3.3.4"
   },
@@ -28,5 +29,16 @@
     "ts-node": "^10.9.1",
     "vite": "^4.4.0",
     "vitest": "^0.33.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "browser": {
+    "./dist/es.js": "./dist/es.js",
+    "./dist/umd.js": "./dist/umd.js"
+  },
+  "globals": {
+    "vue": "Vue"
   }
 }

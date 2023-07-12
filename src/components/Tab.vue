@@ -32,9 +32,19 @@ import { onMounted, ref } from "vue";
 const activeTab = ref();
 
 defineProps({
-  tabs: Array,
-  activeTabColor: String,
-  activeTabIndex: Number,
+  tabs: {
+    type: String,
+    default: () => ['tab1', 'tab2'],
+    required: true
+  },
+  activeTabColor: {
+    type: String,
+    default: "#000000"
+  },
+  activeTabIndex: {
+    type: Number,
+    default: 0
+  },
 });
 
 const setActiveTab = (tab, index) => {
