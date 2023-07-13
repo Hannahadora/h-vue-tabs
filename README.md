@@ -44,6 +44,7 @@ Remember to add import the css file  `import 'h-vue-tabs/dist/style.css'`
 
 ## Usage
 
+```vue
 <script setup>
 import { ref } from "vue";
 
@@ -53,7 +54,7 @@ const tabs = ref(['one', "two"])
 <template>
   <Tab :tabs="tabs" :activeTabIndex="0" activeTabColor="red"></Tab>
 </template>
-
+```
 
 ## Component Parameters
 
@@ -65,4 +66,4 @@ activeTabColor | `String` | `#000000` | activeTab Color.
 
 ## License
 
-[MIT](https://github.com/hannahadora/h-vue-tabs/LICENSE.md)
+[MIT](https://github.com/Hannahadora/h-vue-tabs/blob/master/LICENSE.md)

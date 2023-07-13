@@ -43,6 +43,6 @@
   "globals": {
     "vue": "Vue"
   },
-  "homepage": "https://github.com/Hannahadora/h-vue-tabs.git",
+  "homepage": "https://github.com/Hannahadora/h-vue-tabs/blob/master/README.md",
   "license": "MIT"
 }
