@@ -3,7 +3,7 @@
     <ul class="tab_list">
       <li
         :style="
-          tab === activeTab &&
+          tab?.toLowerCase() === activeTab &&
           `color:${activeTabColor}; border-bottom: 4px solid ${activeTabColor}; font-weight: 600`
         "
         @click="setActiveTab(tab, i)"
@@ -14,7 +14,7 @@
         {{ tab }}
       </li>
     </ul>
-    <div class="tab_content">
+    <!-- <div class="tab_content">
       <template v-for="(tab, i) in tabs" :key="i">
         <Wrapper :tab="tab" :activeTab="activeTab">
           <template v-slot:default>
@@ -22,35 +22,50 @@
           </template>
         </Wrapper>
       </template>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 const activeTab = ref();
+const router = useRouter();
+const route = useRoute();
 
-defineProps({
+const props = defineProps({
   tabs: {
     type: String,
-    default: () => ['tab1', 'tab2'],
-    required: true
+    default: () => ["tab1", "tab2"],
+    required: true,
   },
   activeTabColor: {
     type: String,
-    default: "#000000"
+    default: "#000000",
   },
   activeTabIndex: {
     type: Number,
-    default: 0
+    default: 0,
   },
 });
 
+watch(
+  () => props.activeTabIndex,
+  () => {
+    activeTab.value = props.tabs.findIndex(
+      (tab) => tab === props.activeTabIndex
+    );
+  }
+);
+
 const setActiveTab = (tab, index) => {
-  activeTab.value = tab;
+  activeTab.value = tab.toLowerCase();
+  router.push({ query: { activeTab: activeTab.value } });
 };
 onMounted(() => {
+  const xtab = props.tabs.find((tab, i) => i === props.activeTabIndex);
+  activeTab.value = xtab.toLowerCase();
   console.log("activeTab", activeTab.value);
 });
 </script>

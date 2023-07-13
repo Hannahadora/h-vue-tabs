@@ -6,8 +6,8 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "src/main.js"),
-      name: "h-vue-tab",
+      entry: resolve(__dirname, "src/index.js"),
+      name: "h-vue-tabs",
       fileName: (format) => `${format}.js`
     },
     // Make sure to externalize dep that shouldn't
