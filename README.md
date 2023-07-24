@@ -1,8 +1,10 @@
 A Vue plugin that helps you to create re-usable tab components that aids in smooth routing.
 The `h-vue-tabs` package provides a flexible and customizable tab navigation component for Vue.js applications. Easily switch between tabs and control the active tab using the router.
 
-## Demo
-![Demo](image.png)
+## Sample
+![Sample](image.png)
+
+_mobile friendly_
 
 
 ## Installation

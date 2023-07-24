@@ -14,15 +14,6 @@
         {{ tab }}
       </li>
     </ul>
-    <!-- <div class="tab_content">
-      <template v-for="(tab, i) in tabs" :key="i">
-        <Wrapper :tab="tab" :activeTab="activeTab">
-          <template v-slot:default>
-            <slot :name="tab"></slot>
-          </template>
-        </Wrapper>
-      </template>
-    </div> -->
   </div>
 </template>
 
@@ -36,7 +27,7 @@ const route = useRoute();
 
 const props = defineProps({
   tabs: {
-    type: String,
+    type: Array,
     default: () => ["tab1", "tab2"],
     required: true,
   },
@@ -65,7 +56,7 @@ const setActiveTab = (tab, index) => {
 };
 onMounted(() => {
   const xtab = props.tabs.find((tab, i) => i === props.activeTabIndex);
-  activeTab.value = xtab.toLowerCase();
+  activeTab.value = xtab ? xtab.toLowerCase() : '';
   console.log("activeTab", activeTab.value);
 });
 </script>
@@ -73,6 +64,7 @@ onMounted(() => {
 <style scoped>
 .tab_wrapper {
   width: 100%;
+  overflow-x: scroll;
 }
 .tab_list {
   display: flex;
@@ -80,14 +72,14 @@ onMounted(() => {
   justify-content: space-between;
   border-bottom: 1px solid #c4c4c4;
   list-style-type: none;
+  flex-wrap: nowrap;
 }
 .tab_data {
   cursor: pointer;
   padding: 20px 5px;
 }
-.tab_content {
-  border: 1px solid red;
-  height: 400px;
-  width: 100%;
+
+.tab-wrapper::-webkit-scrollbar {
+  width: 0;
 }
 </style>
